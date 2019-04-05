@@ -98,6 +98,7 @@
         padding-top: 60px;
         bottom: 44px;
         top: 18%;
+        text-shadow: 1px 1px 10px #000;
     }
 
     button {
@@ -118,6 +119,39 @@ button {
     cursor: pointer;
     letter-spacing: 1px;
     color: white;
+    box-shadow: 0 1px 0 rgba(0,0,0,.45);
+}
+
+button:hover{
+    background-color:#F40612;
+    
+}
+
+.navegacao {
+    height: 150px;
+
+    color: #fff;
+    background-color: rgb(20,20,20);
+    font-weight: 700;
+}
+
+#no-commitments, #watch-anywhere {
+    height: 150px;
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    
+    /* background-color: rgb(20,20,20); */
+
+}
+
+#pick-your-price {
+    height: 150px;
+    float: right;
+    width: 33.3%;
+    text-align: center;
+    /* background-color: rgb(20,20,20); */
+
 }
 
 .texto p {
