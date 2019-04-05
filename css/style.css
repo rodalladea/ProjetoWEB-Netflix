@@ -1,8 +1,7 @@
-
-
 @media screen and (min-width: 994px) {
     body {
         margin: 0;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
     a {
@@ -68,7 +67,7 @@
         top: 0;
         z-index: 4;
     }
-    
+
     .concord-img {
         position: absolute;
         top: 0;
@@ -76,22 +75,65 @@
         right: 0;
         bottom: 0;
     }
-    
+
     img {
         width: auto;
         height: 135%;
         position: absolute;
-        transform: translate(-70%,-62.5%) scale(1);
+        transform: translate(-70%, -62.5%) scale(1);
         top: 66%;
         left: 70%;
         border: 0;
         z-index: 3;
         opacity: 1;
     }
+
+    .conteudo-wrapper {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        z-index: 5;
+        min-height: 550px;
+        justify-content: center;
+        padding-top: 60px;
+        bottom: 44px;
+        top: 18%;
+    }
+
+    button {
+        padding: 32px 64px;
+        font-size: 30px;
+        margin: .5em .5em .5em 0;
+    }
+
+}
+
+button {
+    background-color: #e50914;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.texto p {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 30px;
+
 }
 
 @media screen and (min-width: 660px) and (max-width: 994px) {
     
+}
+
+.texto h1 {
+    font-size: 80px;
+    font-weight: 700;
 }
 
 @media screen and (max-width: 660px) {
