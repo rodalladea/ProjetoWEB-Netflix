@@ -4,7 +4,11 @@
     body {
         margin: 0;
     }
-    
+
+    a {
+        background-color: transparent;
+    }
+
     .concord {
         background: #1a1a1a;
         box-sizing: border-box;
@@ -15,6 +19,44 @@
         height: 93vh;
         transition: height .2s linear;
         max-height: 180vw;
+    }
+
+    .header {
+        height: 90px;
+        width: 100%;
+        background: 0 0;
+        border: 0;
+        position: absolute;
+        z-index: 5;
+    }
+
+    .svg-a {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-left: 0;
+        vertical-align: middle;
+        fill: #e50914;
+        display: inline-block;
+        line-height: 90px;
+    }
+
+    .svg-box-logo {
+        height: 45px;
+        width: 167px;
+        vertical-align: middle;
+    }
+
+    .sign-in {
+        color: #fff;
+        line-height: normal;
+        margin: 18px 3% 0;
+        padding: 7px 17px;
+        font-weight: 400;
+        border-radius: 3px;
+        font-size: 16px;
+        background-color: red;
     }
     
     .gradiente {
@@ -48,6 +90,10 @@
     }
 }
 
-@media screen and (min-width: 660px) {
+@media screen and (min-width: 660px) and (max-width: 994px) {
+    
+}
 
+@media screen and (max-width: 660px) {
+    
 }
