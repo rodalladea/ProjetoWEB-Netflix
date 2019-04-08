@@ -133,16 +133,24 @@ button:hover{
     color: #fff;
     background-color: rgb(20,20,20);
     font-weight: 700;
+    position: relative;
 }
+ 
+.navegacao div {
+    display: inline-block;
+}
+
+
 
 #no-commitments, #watch-anywhere {
     height: 150px;
     float: left;
     width: 33.3%;
     text-align: center;
-    
-    /* background-color: rgb(20,20,20); */
-
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #pick-your-price {
@@ -150,8 +158,15 @@ button:hover{
     float: right;
     width: 33.3%;
     text-align: center;
-    /* background-color: rgb(20,20,20); */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.icon {
+    height: 64px;
+    
 }
 
 .texto p {
