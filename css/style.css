@@ -76,7 +76,7 @@
         bottom: 0;
     }
 
-    img {
+    #bg {
         width: auto;
         height: 135%;
         position: absolute;
@@ -86,6 +86,10 @@
         border: 0;
         z-index: 3;
         opacity: 1;
+    }
+
+    .wrapper {
+        border-bottom: 2px solid rgb(61,61,61);
     }
 
     .conteudo-wrapper {
@@ -109,6 +113,14 @@
 
 }
 
+@media screen and (min-width: 660px) and (max-width: 994px) {
+    
+}
+
+@media screen and (max-width: 660px) {
+    
+}
+
 button {
     background-color: #e50914;
     border: none;
@@ -127,57 +139,58 @@ button:hover{
     
 }
 
+.container {
+    width: 80vw;
+    margin: 0 auto;
+}
+
 .navegacao {
     height: 150px;
-
     color: #fff;
     background-color: rgb(20,20,20);
     font-weight: 700;
     position: relative;
 }
- 
-.navegacao div {
-    display: inline-block;
-}
 
-
-
-#no-commitments, #watch-anywhere {
-    height: 150px;
+.nav-item {
     float: left;
-    width: 33.3%;
+    padding-top: 37px;
+    height: 108px;
+    width: 33%;
     text-align: center;
     position: relative;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
+    opacity: 0.5;
+
 }
 
-#pick-your-price {
-    height: 150px;
-    float: right;
-    width: 33.3%;
-    text-align: center;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.nav-item:first-child{
+    opacity: 1;
+    border-bottom: 7px solid rgb(229,9,20);
+}
+
+.nav-item:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.nav-item p, img {
+    display: block;
+    line-height: 1px;
 }
 
 .icon {
-    height: 64px;
-    
+    height: 32px;
+    margin: 0 auto;
 }
 
 .texto p {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 30px;
-
-}
-
-@media screen and (min-width: 660px) and (max-width: 994px) {
-    
+    margin: 0 auto;
 }
 
 .texto h1 {
@@ -185,6 +198,3 @@ button:hover{
     font-weight: 700;
 }
 
-@media screen and (max-width: 660px) {
-    
-}
