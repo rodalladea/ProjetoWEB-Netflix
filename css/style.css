@@ -1,33 +1,14 @@
-@media screen and (min-width: 994px) {
-    body, html {
-        margin: 0;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    }
-
-    a {
-        background-color: transparent;
+@media screen and (min-width: 1000px) {
+    
+    button {
+        padding: 30px 45px 30px 60px;
+        margin: .5em .5em .5em 0;
+        font-size: 30px;
     }
 
     .concord {
-        background: #1a1a1a;
-        box-sizing: border-box;
-        overflow: hidden;
-        color: #fff;
-        position: relative;
-        z-index: 0;
         height: 100vh;
         margin-bottom: -7vh;
-        transition: height .2s linear;
-        max-height: 180vw;
-    }
-
-    .header {
-        height: 90px;
-        width: 100%;
-        background: 0 0;
-        border: 0;
-        position: absolute;
-        z-index: 5;
     }
 
     .svg-a {
@@ -36,33 +17,18 @@
         left: 50%;
         transform: translate(-50%, -50%);
         margin-left: 0;
-        vertical-align: middle;
-        fill: #e50914;
-        display: inline-block;
         line-height: 90px;
     }
 
     .svg-box-logo {
         height: 45px;
         width: 167px;
-        vertical-align: middle;
     }
 
     .sign-in {
-        color: #fff;
-        line-height: normal;
         margin: 18px 3% 0;
         padding: 7px 17px;
-        font-weight: 400;
-        border-radius: 3px;
         font-size: 16px;
-        background-color: #e50914;
-        float: right;
-        text-decoration: none;
-    }
-
-    .sign-in:hover {
-        background-color: #f40612;
     }
     
     .gradiente {
@@ -77,49 +43,36 @@
     }
 
     .concord-img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-
-    #bg {
-        width: auto;
-        height: 135%;
-        position: absolute;
+        width: 118%;
         transform: translate(-70%, -62.5%) scale(1);
         top: 66%;
         left: 70%;
-        border: 0;
-        z-index: 3;
-        opacity: 1;
     }
 
-    .wrapper {
+    .home-wrapper {
         border-bottom: 2px solid rgb(61,61,61);
     }
 
     .conteudo-wrapper {
-        position: absolute;
-        text-align: center;
-        width: 100%;
-        z-index: 5;
-        min-height: 550px;
-        justify-content: center;
-        padding-top: 60px;
         bottom: 44px;
         top: 18%;
-        
+        width: 100%;
     }
 
-    button {
-        padding: 30px 45px 30px 60px;
-        margin: .5em .5em .5em 0;
+    .texto p {
+        text-transform: uppercase;
+        letter-spacing: .2px;
         font-size: 30px;
+        margin: 0 auto 30px auto;
     }
-
     
+    .texto h1 {
+        font-size: 80px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 10px #000;
+    }
 
     .text-maior {
         background-image: url(https://assets.nflxext.com/ffe/siteui/acquisition/home/chevron-right-whitespace.png);
@@ -129,16 +82,336 @@
         width: 1em;
         height: .8em;
         display: inline-block;
+        background-size: contain;
     }
 
 }
 
-@media screen and (min-width: 660px) and (max-width: 994px) {
+@media screen and (min-width: 660px) and (max-width: 1000px) {
     
+    button {
+        padding: 1em 1.5em 1em 2em;
+        margin: .5em .5em .5em 0;
+        font-size: 24px;
+    }
+
+    .concord {
+        height: 100vh;
+        margin-bottom: -7vh;
+    }
+
+    .svg-a {
+        margin-left: 3%;
+        line-height: 90px;
+    }
+
+    .svg-box-logo {
+        height: 45px;
+        width: 167px;
+    }
+
+    .sign-in {
+        margin: 18px 3% 0;
+        padding: 7px 17px;
+        font-size: 16px;
+    }
+
+    .gradiente {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, .5);
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5) 100%), radial-gradient(50% 120%, rgba(0, 0, 0, 0) 50%, rgb(0, 0, 0, .7) 100%);
+        left: 0;
+        top: 0;
+        z-index: 4;
+    }
+
+    .concord-img {
+        width: auto;
+        height: 135%;
+        transform: translate(-70%, -62.5%) scale(1);
+        top: 66%;
+        left: 70%;
+    }
+
+    .conteudo-wrapper {
+        bottom: 44px;
+        top: 18%;
+        width: 100%;
+    }
+
+    .texto p {
+        text-transform: uppercase;
+        letter-spacing: .2px;
+        font-size: 24px;
+        margin: 0 auto 30px auto;
+    }
+
+    .texto h1 {
+        font-size: 60px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 10px #000;
+    }
+
+    .text-maior {
+        background-image: url(https://assets.nflxext.com/ffe/siteui/acquisition/home/chevron-right-whitespace.png);
+        background-repeat: no-repeat;
+        background-position: 0 3px;
+        margin-left: .5em;
+        width: 1em;
+        height: .8em;
+        display: inline-block;
+        background-size: contain;
+    }
+
 }
 
-@media screen and (max-width: 660px) {
-    
+@media screen and (min-width: 440px) and (max-width: 660px) {
+    button {
+        padding: 1em 1.5em 1em 2em;
+        margin: 1em auto;
+        font-size: 15px;
+    }
+
+    .concord {
+        height: 94vh;
+    }
+
+    .svg-a {
+        margin-left: 3%;
+        line-height: 75px;
+    }
+
+    .svg-box-logo {
+        height: 45px;
+        width: 167px;
+    }
+
+    .bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to bottom,rgba(0,0,0,.5) 5%,rgba(0,0,0,0) 95%);
+        zoom: 1;
+        height: 10%;
+        top: 0;
+        z-index: 10;
+    }
+
+    .bg::after {
+        content: '';
+        position: absolute;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to top,rgba(0,0,0,.8) 20%,rgba(0,0,0,0) 65%);
+        zoom: 1;
+        height: 65%;
+        z-index: 10;
+    }
+
+    .sign-in {
+        margin: 18px 3% 0;
+        padding: 7px 17px;
+        font-size: 16px;
+    }
+
+    .gradiente {
+        position: absolute;
+        height: 67%;
+        width: 118%;
+        background: rgba(0, 0, 0, .5);
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5) 100%), radial-gradient(50% 120%, rgba(0, 0, 0, 0) 50%, rgb(0, 0, 0, .7) 100%);
+        top: 0;
+    }
+
+    .gradiente::before {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 20%;
+        width: 100%;
+        background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.9), transparent);
+        z-index: 5;
+    }
+
+    .gradiente::after {
+        content: '';
+        position: absolute;
+        height: 20%;
+        width: 100%;
+        bottom: -1px;
+        background-image: linear-gradient(to top, #1a1a1a, transparent);
+        z-index: 5;
+    }
+
+    .concord-img {
+        width: auto;
+        height: 67%;
+        transform: translate(-70%);
+        top: 0;
+        left: 75%;
+    }
+
+    .conteudo-wrapper {
+        top: auto;
+        bottom: 44px;
+        max-width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        left: 0;
+    }
+
+    .texto p {
+        text-transform: uppercase;
+        letter-spacing: .2px;
+        font-size: 1.3em;
+        font-weight: 400;
+        margin: 0 0 .5em;
+    }
+
+    .texto h1 {
+        font-size: 2.5em;
+        font-weight: 700;
+        margin: 0 0 .2em;
+        text-shadow: 1px 1px 10px #000;
+    }
+
+}
+
+@media screen and (max-width: 440px) {
+    button {
+        padding: 1em 1.5em 1em 2em;
+        margin: 1em auto;
+        font-size: 15px;
+    }
+
+    .concord {
+        height: 94vh;
+    }
+
+    .svg-a {
+        margin-left: 3%;
+        line-height: 45px;
+    }
+
+    .svg-box-logo {
+        height: 20px;
+        width: 75px;
+        padding: 12px 0 0 0;
+    }
+
+    .bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to bottom,rgba(0,0,0,.5) 5%,rgba(0,0,0,0) 95%);
+        zoom: 1;
+        height: 10%;
+        top: 0;
+        z-index: 10;
+    }
+
+    .bg::after {
+        content: '';
+        position: absolute;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to top,rgba(0,0,0,.8) 20%,rgba(0,0,0,0) 65%);
+        zoom: 1;
+        height: 65%;
+        z-index: 10;
+    }
+
+    .sign-in {
+        margin: 10px 3% 0;
+        padding: 5px 15px;
+        font-size: 15px;
+    }
+
+    .gradiente {
+        position: absolute;
+        height: 67%;
+        width: 118%;
+        background: rgba(0, 0, 0, .5);
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5) 100%), radial-gradient(50% 120%, rgba(0, 0, 0, 0) 50%, rgb(0, 0, 0, .7) 100%);
+        top: 0;
+    }
+
+    .gradiente::before {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 20%;
+        width: 100%;
+        background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.9), transparent);
+        z-index: 5;
+    }
+
+    .gradiente::after {
+        content: '';
+        position: absolute;
+        height: 20%;
+        width: 100%;
+        bottom: -1px;
+        background-image: linear-gradient(to top, #1a1a1a, transparent);
+        z-index: 5;
+    }
+
+    .concord-img {
+        width: auto;
+        height: 67%;
+        transform: translate(-70%);
+        top: 0;
+        left: 75%;
+    }
+
+    .conteudo-wrapper {
+        top: auto;
+        bottom: 44px;
+        max-width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        left: 0;
+    }
+
+    .texto p {
+        text-transform: uppercase;
+        letter-spacing: .2px;
+        font-size: 1.3em;
+        font-weight: 400;
+        margin: 0 0 .5em;
+    }
+
+    .texto h1 {
+        font-size: 2.5em;
+        font-weight: 700;
+        margin: 0 0 .2em;
+        text-shadow: 1px 1px 10px #000;
+    }
+
+}
+
+body, html {
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    direction: ltr;
+}
+
+a {
+    background-color: transparent;
 }
 
 button {
@@ -147,6 +420,7 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    min-height: 48px;
     text-transform: uppercase;
     cursor: pointer;
     letter-spacing: 2px;
@@ -156,6 +430,90 @@ button {
 
 button:hover{
     background-color:#F40612;
+}
+
+.concord {
+    background: #1a1a1a;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: #fff;
+    position: relative;
+    z-index: 0;
+    transition: height .2s linear;
+    max-height: 180vw;
+}
+
+.header {
+    height: 90px;
+    width: 100%;
+    background: 0 0;
+    border: 0;
+    position: absolute;
+    z-index: 6;
+}
+
+.svg-a {
+    vertical-align: middle;
+    fill: #e50914;
+    display: inline-block;
+}
+
+.svg-box-logo {
+    vertical-align: middle;
+}
+
+.sign-in {
+    color: #fff;
+    line-height: normal;
+    font-weight: 400;
+    border-radius: 3px;
+    background-color: #e50914;
+    float: right;
+    text-decoration: none;
+}
+
+.sign-in:hover {
+    background-color: #f40612;
+}
+
+.concord .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.concord-img {
+    position: absolute;
+    border: 0;
+    z-index: 3;
+    opacity: 1;
+}
+
+.conteudo-wrapper {
+    position: absolute;
+    text-align: center;
+    
+    z-index: 6;
+    justify-content: center;
+    padding-top: 60px;
+    margin: 0 3%;
+    width: 94%;
+}
+
+.texto {
+    position: relative;
+    top: auto;
 }
 
 .container {
@@ -204,19 +562,3 @@ button:hover{
     height: 32px;
     margin: 0 auto;
 }
-
-.texto p {
-    text-transform: uppercase;
-    letter-spacing: .2px;
-    font-size: 30px;
-    margin: 0 auto 30px auto;
-}
-
-.texto h1 {
-    font-size: 80px;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 10px #000;
-}
-
