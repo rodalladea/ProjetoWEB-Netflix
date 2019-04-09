@@ -39,13 +39,14 @@
         background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5) 100%), radial-gradient(50% 120%, rgba(0, 0, 0, 0) 50%, rgb(0, 0, 0, .7) 100%);
         left: 0;
         top: 0;
-        z-index: 4;
+        z-index: 3;
     }
 
     .concord-img {
-        width: 118%;
+        width: auto;
+        height: 135%;
         transform: translate(-70%, -62.5%) scale(1);
-        top: 66%;
+        top: 60%;
         left: 70%;
     }
 
@@ -149,7 +150,7 @@
         background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5) 100%), radial-gradient(50% 120%, rgba(0, 0, 0, 0) 50%, rgb(0, 0, 0, .7) 100%);
         left: 0;
         top: 0;
-        z-index: 4;
+        z-index: 3;
     }
 
     .concord-img {
@@ -253,7 +254,7 @@
         zoom: 1;
         height: 10%;
         top: 0;
-        z-index: 10;
+        z-index: 4;
     }
 
     .bg::after {
@@ -266,7 +267,7 @@
         background-image: linear-gradient(to top, rgba(0, 0, 0, .8) 20%, rgba(0, 0, 0, 0) 65%);
         zoom: 1;
         height: 65%;
-        z-index: 10;
+        z-index: 4;
     }
 
     .sign-in {
@@ -291,7 +292,7 @@
         height: 20%;
         width: 100%;
         background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.9), transparent);
-        z-index: 5;
+        z-index: 3;
     }
 
     .gradiente::after {
@@ -301,13 +302,13 @@
         width: 100%;
         bottom: -1px;
         background-image: linear-gradient(to top, #1a1a1a, transparent);
-        z-index: 5;
+        z-index: 3;
     }
 
     .concord-img {
-        width: auto;
+        width: 100%;
         height: 67%;
-        transform: translate(-70%);
+        transform: translate(-75%);
         top: 0;
         left: 75%;
     }
@@ -399,7 +400,7 @@
         zoom: 1;
         height: 10%;
         top: 0;
-        z-index: 10;
+        z-index: 4;
     }
 
     .bg::after {
@@ -412,7 +413,7 @@
         background-image: linear-gradient(to top, rgba(0, 0, 0, .8) 20%, rgba(0, 0, 0, 0) 65%);
         zoom: 1;
         height: 65%;
-        z-index: 10;
+        z-index: 4;
     }
 
     .sign-in {
@@ -437,7 +438,7 @@
         height: 20%;
         width: 100%;
         background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.9), transparent);
-        z-index: 5;
+        z-index: 3;
     }
 
     .gradiente::after {
@@ -447,7 +448,7 @@
         width: 100%;
         bottom: -1px;
         background-image: linear-gradient(to top, #1a1a1a, transparent);
-        z-index: 5;
+        z-index: 3;
     }
 
     .concord-img {
@@ -559,7 +560,7 @@ button:hover {
     background: 0 0;
     border: 0;
     position: absolute;
-    z-index: 6;
+    z-index: 5;
 }
 
 .svg-a {
@@ -586,7 +587,7 @@ button:hover {
     background-color: #f40612;
 }
 
-.concord .bg {
+.bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -606,15 +607,16 @@ button:hover {
 .concord-img {
     position: absolute;
     border: 0;
-    z-index: 3;
+    z-index: 2;
     opacity: 1;
 }
 
 .conteudo-wrapper {
     position: absolute;
     text-align: center;
+    
+    z-index: 4;
 
-    z-index: 6;
     justify-content: center;
     padding-top: 60px;
     margin: 0 3%;
