@@ -1,5 +1,5 @@
 @media screen and (min-width: 994px) {
-    body {
+    body, html {
         margin: 0;
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
@@ -110,13 +110,25 @@
         padding-top: 60px;
         bottom: 44px;
         top: 18%;
-        text-shadow: 1px 1px 10px #000;
+        
     }
 
     button {
-        padding: 32px 64px;
-        font-size: 30px;
+        padding: 30px 45px 30px 60px;
         margin: .5em .5em .5em 0;
+        font-size: 30px;
+    }
+
+    
+
+    .text-maior {
+        background-image: url(https://assets.nflxext.com/ffe/siteui/acquisition/home/chevron-right-whitespace.png);
+        background-repeat: no-repeat;
+        background-position: 0 3px;
+        margin-left: .5em;
+        width: 1em;
+        height: .8em;
+        display: inline-block;
     }
 
 }
@@ -137,14 +149,13 @@ button {
     display: inline-block;
     text-transform: uppercase;
     cursor: pointer;
-    letter-spacing: 1px;
-    color: white;
+    letter-spacing: 2px;
+    color: #fff;
     box-shadow: 0 1px 0 rgba(0,0,0,.45);
 }
 
 button:hover{
     background-color:#F40612;
-    
 }
 
 .container {
@@ -196,13 +207,16 @@ button:hover{
 
 .texto p {
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: .2px;
     font-size: 30px;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
 }
 
 .texto h1 {
     font-size: 80px;
     font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 10px #000;
 }
 
