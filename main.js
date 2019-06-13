@@ -6,7 +6,8 @@ var http = require('http'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     jwt = require('jsonwebtoken'),
-    Users = require('./model/Users');
+    Users = require('./model/Users'),
+    Filmes = require('./model/Filmes');
 
 const TOKEN = '1358@asdfg';
 // require("dotenv-safe").load();
@@ -113,6 +114,25 @@ app.post('/', (req, res) => {
     });
 
     res.redirect('cadastro');
+    res.end();
+});
+
+
+app.get('/filme', (req, res) => {
+    Filmes.find({}, 0).then(result => {
+        console.log("aqui");
+        console.log(result);
+
+        res.render('filme', { filmes: result });
+    });
+});
+
+app.post('/cadastro/filme', (req, res) => {
+    var filme = new Filmes(req.body);
+    filme.save();
+    filme.close();
+
+    res.redirect('/filme');
     res.end();
 });
 

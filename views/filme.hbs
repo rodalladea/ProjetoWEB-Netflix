@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Novo Filme</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Novo Filme</h1>
+    <form action="/cadastro/filme" method="POST">
+        <label for="nome">Nome: </label>
+        <input type="text" name="nome" value="" required/>
+
+        <label for="ano">Ano: </label>
+        <input type="number" name="ano" value="" required/>
+
+        <label for="img">Imagem: </label>
+        <input type="text" name="img" value="" onchange="viewPhoto()" required/>
+        <img id="poster" src="">
+
+        <label for="sinopse">Sinopse: </label>
+        <input type="text" name="sinopse" value="" required/>
+
+        <input type="submit" name="enviar" value="CadastraFilme">
+    </form>
+
+    {{#each filmes}}
+        <p>{{this}}</p>
+    {{/each}}
+
+    <script>
+        function viewPhoto() {
+            var img = document.getElementById("poster");
+            var url = document.querySelector("input[name=img]").value;
+
+            img.src = url;
+        }
+    </script>
+</body>
+</html>

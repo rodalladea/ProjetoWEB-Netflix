@@ -1,21 +1,21 @@
-let client = require('mongodb').MongoClient;
+let Mongo = require('./Mongo');
 
-module.exports = class Filme {
-    static find() {
-        return client.connect(
-            'mongodb://localhost:27017/netflix',
-            {useNewUrlParser: true}).then((client) => {
-                let db = client.db('netflix');
-                return db.collection('filmes').find({}).toArray();
-            });
+module.exports = class Filme extends Mongo {
+
+    constructor(data) {
+        super(data);
+        this.id = data.id;
+        this.nome = data.nome;
+        this.ano = data.ano;
+        this.img = data.img;
+        this.sinopse = data.sinopse;
+        this.collection = 'filmes';
     }
 
-    static insert(nome) {
-        return client.connect('mongodb://localhost:27017/netflix',
-        {useNewUrlParser:true}).then((client) => {
-            let db = client.db('netflix');
-            return db.collection('filmes').insertOne({"nome": nome})
-        }).catch((err) => {throw err;})
+    static find(query = {}, limit = 0) {
+        return super.find(query, {nome: 1}, limit, 'filmes').then(result => {
+            return result.map(filme => new Filme(filme));
+        });
     }
     
 }
