@@ -88,6 +88,47 @@ app.get('/configuracao', verifyJWT, (req, res) => {
     });
 });
 
+app.get('/busca', (req, res) => {
+    if ("nome" === req.query.filtro) {
+        Filmes.find({nome: req.query.busca}, 0).then(result => {
+
+            res.render('configuracao', { filmes: result });
+        });
+    } else if ("ano" === req.query.filtro) {
+        Filmes.find({ano: req.query.busca}, 0).then(result => {
+
+            res.render('configuracao', { filmes: result });
+        });
+    } else if ("sinopse" === req.query.filtro) {
+        Filmes.find({sinopse: req.query.busca}, 0).then(result => {
+
+            res.render('configuracao', { filmes: result });
+        });
+    }
+    
+});
+
+app.get('/configuracao/busca', (req, res) => {
+    
+    if ("nome" === req.query.filtro) {
+        Filmes.find({nome: req.query.busca}, 0).then(result => {
+
+            res.render('configuracao', { filmes: result });
+        });
+    } else if ("ano" === req.query.filtro) {
+        Filmes.find({ano: req.query.busca}, 0).then(result => {
+
+            res.render('configuracao', { filmes: result });
+        });
+    } else if ("sinopse" === req.query.filtro) {
+        Filmes.find({sinopse: req.query.busca}, 0).then(result => {
+
+            res.render('configuracao', { filmes: result });
+        });
+    }
+    
+});
+
 app.post('/login', (req, res) => {
     let login = req.body.login;
     let senha = req.body.senha;

@@ -53,6 +53,21 @@
         </div>
 
         <div class="fundo">
+            
+            <form class="pesquisa" action="/busca" method="GET">
+                <label for="busca">Pesquisar: </label>
+                <input type="text" name="busca" value="" />
+
+                <label for="filtro">Filtro: </label>
+                <select name="filtro">
+                    <option value="nome" selected>Nome</option> 
+                    <option value="ano">Ano</option>
+                    <option value="sinopse">Sinopse</option>
+                </select>
+
+                <input type="submit" name="envia" value="Buscar">
+            </form>
+
             <div class="all-card">
                 {{#each filmes}}
                 <div class="card">

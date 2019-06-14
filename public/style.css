@@ -695,3 +695,29 @@ button:hover {
 .p-card {
     margin: 2px 0 2px 0;
 }
+
+.pesquisa {
+    display: inline-block;
+    position: relative;
+    margin-top: 100px;
+    font-size: 25px;
+}
+
+label {
+    color: #fff;
+}
+
+input[type="submit"] {
+    background-color: #e50914;
+    min-height: 35px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    margin: 10px 0 10px 0;
+}
+
+input[type="submit"]:hover {
+    background-color: #F40612;
+}

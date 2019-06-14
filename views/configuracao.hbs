@@ -11,12 +11,28 @@
 </head>
 <body>
         <div class="header">
+            
+
             <a href="./profile" class="perfil novo">Perfil</a>
             <a href="./filme" class="perfil">Adicionar Novo Filme</a>
         </div>
         
         <div class="concord">
             <h1>Filmes</h1>
+
+            <form class="pesquisa" action="/busca" method="GET">
+                <label for="busca">Pesquisar: </label>
+                <input type="text" name="busca" value="" />
+
+                <label for="filtro">Filtro: </label>
+                <select name="filtro">
+                    <option value="nome" selected>Nome</option> 
+                    <option value="ano">Ano</option>
+                    <option value="sinopse">Sinopse</option>
+                </select>
+
+                <input type="submit" name="envia" value="Buscar">
+            </form>
 
             {{#each filmes}}
                 <div class="all-card">

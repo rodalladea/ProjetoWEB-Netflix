@@ -72,6 +72,7 @@ a {
 label {
     display: block;
     margin: 2px 0 2px 0;
+    color: #fff;
 }
 
 h1 {
@@ -80,19 +81,24 @@ h1 {
 
 input[type="submit"] {
     background-color: #e50914;
-    min-height: 35px;
+    min-height: 25px;
     text-transform: uppercase;
     cursor: pointer;
     color: #fff;
     border: none;
     border-radius: 3px;
-    margin: 10px 0 10px 0;
+    margin: 10px 0 10px 10px;
 }
 
 input[type="submit"]:hover {
     background-color: #F40612;
 }
 
-form {
+form[method="POST"] {
     display: inline-block;
+}
+
+.pesquisa {
+    margin: 10px 0 0 25px;
+    font-size: 25px;
 }
