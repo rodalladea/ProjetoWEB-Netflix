@@ -40,7 +40,9 @@
                         <form action="/filme/update" method="POST">
                             <input type="hidden" name="_id" value="{{_id}}">
                             <input type="hidden" name="img" value="{{img}}">
-                            <img src={{img}} class="img-card">
+                            <img id="poster" src="{{img}}" class="img-card">
+
+                            <input type="file" name="img-nome"  oninput="readImage(event)">
                             <div class="conteudo-card">
                                 <label class="campo-card" for="nome">Nome</label>
                                 <input type="text" name="nome" value="{{nome}}">
@@ -69,5 +71,18 @@
             {{/each}}
 
         </div>
+
+        <script>
+            function readImage(event) {
+                if (event.target.files && event.target.files[0]) {
+                    var FR = new FileReader();
+                    FR.onload = function(e) {
+                        document.getElementById("poster").src = e.target.result;
+                        document.querySelector("input[name=img]").value = e.target.result;
+                    };
+                    FR.readAsDataURL(event.target.files[0]);
+                }
+            }
+        </script>
 </body>
 </html>

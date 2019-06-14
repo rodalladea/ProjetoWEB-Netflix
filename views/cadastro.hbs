@@ -5,22 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastro de Usuários</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="addFilme.css">
 </head>
 <body>
-    <h1>Cadastro</h1>
-    <form action="./" method="POST">
-        <label for="usuario">Usuário</label>
-        <input type="text" name="usuario" value="" required/>
+    <div class="concord">
+        <div class="card-form"> 
+    
+            <h1>Cadastro</h1>
+            <form action="./" method="POST">
+                <div class="content-form">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" name="usuario" value="" required/>
+                </div>
+                
+                <div class="content-form">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" value="" required/>
+                </div>
 
-        <label for="email">E-mail</label>
-        <input type="email" name="email" value="" required/>
+                <div class="content-form">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" value="" required/>
+                </div>
 
-        <label for="senha">Senha</label>
-        <input type="password" name="senha" value="" required/>
+                <div class="content-form">
+                    <input type="submit" name="enviar" value="Cadastrar">
+                </div>
 
-        <input type="submit" name="enviar" value="Cadastrar">
+            </form> 
 
-    </form> 
+        </div>
+    </div>
 
 </body>
 </html>
