@@ -38,10 +38,19 @@ app.get('/cadastro', (req, res) => {
 
 
 app.get('/', (req, res) => {
+    let filme = new Filmes({_id: "1",
+                            nome: "joao",
+                            ano: "1999",
+                            img: "img",
+                            sinopse: "oi"});
+    filme.save();
+    
     Filmes.find({}, 0).then(result => {
 
         res.render('index', { filmes: result });
     });
+
+    filme.delete();
 });
 
 app.get('/profile', verifyJWT, (req, res) => {
@@ -82,9 +91,16 @@ app.post('/filme/update', verifyJWT, (req, res) => {
 });
 
 app.get('/configuracao', verifyJWT, (req, res) => {
+    let filme = new Filmes({_id: "1",
+                            nome: "joao",
+                            ano: "1999",
+                            img: "img",
+                            sinopse: "oi"});
+    filme.save();
+    
     Filmes.find({}, 0).then(result => {
 
-        res.render('configuracao', { filmes: result });
+        res.render('index', { filmes: result });
     });
 });
 
