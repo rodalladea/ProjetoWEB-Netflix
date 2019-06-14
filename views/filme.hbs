@@ -7,7 +7,7 @@
     <title>Novo Filme</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
-    <link rel="stylesheet" type="text/css" href="addFilme.css">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
 </head>
 <body>
     
@@ -48,19 +48,6 @@
         </div>    
     </div>
 
-    <script>
-        
-        function readImage(event) {
-            if (event.target.files && event.target.files[0]) {
-                var FR = new FileReader();
-                FR.onload = function(e) {
-                    document.getElementById("poster").src = e.target.result;
-                    document.querySelector("input[name=img]").value = e.target.result;
-                };
-                FR.readAsDataURL(event.target.files[0]);
-            }
-        }
-
-    </script>
+    <script type="text/javascript" src="js/image.js"></script>
 </body>
 </html>
