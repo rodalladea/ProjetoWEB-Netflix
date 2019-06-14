@@ -39,7 +39,7 @@ app.get('/cadastro', (req, res) => {
 
 app.get('/', (req, res) => {
 
-        res.render('index', { filmes: result });
+        res.render('index');
 });
 
 app.get('/profile', verifyJWT, (req, res) => {
