@@ -38,8 +38,10 @@ app.get('/cadastro', (req, res) => {
 
 
 app.get('/', (req, res) => {
+    Filmes.find({}, 0).then(result => {
 
-        res.render('index');
+        res.render('index', { filmes: result });
+    });
 });
 
 app.get('/profile', verifyJWT, (req, res) => {
@@ -222,7 +224,7 @@ function verifyJWT(req, res, next) {
             if(err) {
                 res.status(500);
                 alert('Token inválido');
-                res.redirect('/');
+                res.redirect();
                 res.end();
             }
 
