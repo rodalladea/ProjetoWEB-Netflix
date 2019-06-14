@@ -232,6 +232,4 @@ function verifyJWT(req, res, next) {
             }
         });
     }
-
-    res.end();
 }
