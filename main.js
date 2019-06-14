@@ -6,7 +6,8 @@ var http = require('http'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     jwt = require('jsonwebtoken'),
-    Users = require('./model/Users');
+    Users = require('./model/Users'),
+    Filmes = require('./model/Filmes');
 
 const TOKEN = '1358@asdfg';
 
@@ -36,7 +37,10 @@ app.get('/cadastro', (req, res) => {
 
 
 app.get('/', (req, res) => {
-    res.render('index');
+    Filmes.find({}, 0).then(result => {
+
+        res.render('index', { filmes: result });
+    });
 });
 
 app.get('/profile', verifyJWT, (req, res) => {
@@ -120,6 +124,46 @@ app.post('/', (req, res) => {
     res.redirect('cadastro');
     res.end();
 });
+
+
+app.get('/filme', (req, res) => {
+
+    res.render('filme');
+    
+});
+
+app.post('/filme/cadastro', (req, res) => {
+    var filme = new Filmes(req.body);
+    filme.save();
+
+    res.redirect('/filme');
+    res.end();
+});
+
+app.post('/filme/delete', (req, res) => {
+    var filme = new Filmes(req.body);
+    filme.delete();
+
+    res.redirect('/configuracao');
+    res.end();
+});
+
+app.post('/filme/update', (req, res) => {
+    var filme = new Filmes(req.body);
+    filme.save();
+
+    res.redirect('/configuracao');
+    res.end();
+    
+});
+
+app.get('/configuracao', (req, res) => {
+    Filmes.find({}, 0).then(result => {
+
+        res.render('configuracao', { filmes: result });
+    });
+});
+
 
 http.createServer(app).listen(3000);
 
