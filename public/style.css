@@ -618,6 +618,56 @@ button:hover {
     width: 94%;
 }
 
+.conteudo-wrapper .container {
+    width: 30vw;
+}
+
+#form input[type=text] {
+    width: 100%;
+}
+
+#form input[type=password] {
+    width: 100%;
+}
+#form input[type=email] {
+    width: 100%;
+}
+
+#form label {
+    float: left;
+}
+
+#form input[type=submit] {
+    border:none;
+    cursor: pointer;
+    float: right;
+
+    /* margin: 18px 3% 0; */
+    padding: 7px 17px;
+    font-size: 16px;
+
+    margin: .5em .5em .5em 0;
+
+    color: #fff;
+    line-height: normal;
+    font-weight: 400;
+    border-radius: 3px;
+    background-color: #e50914;
+    float: right;
+    text-decoration: none;
+}
+
+a:visited{
+    color: white;
+    
+}
+
+#sign-up{
+    margin-top: 15px;
+    float: left;
+}
+
+
 .texto {
     position: relative;
     top: auto;

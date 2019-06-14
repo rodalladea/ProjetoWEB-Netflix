@@ -177,8 +177,6 @@ app.post('/', (req, res) => {
         email = req.body.email,
         senha = req.body.senha;
     
-    
-
     Users.findByEmail(email).then((emailFound) => {
         console.log(emailFound[0]);
 
@@ -209,14 +207,31 @@ app.post('/', (req, res) => {
 http.createServer(app).listen(3000);
 
 function verifyJWT(req, res, next) {
-    console.log(req.cookies);
+    console.log(req.cookies.token);
     var token = req.cookies.token;
-    if(!token) return res.status(401).send({auth: false, message: 'No token provided.'});
+    // if(!token) return res.status(401).send({auth: false, message: 'No token provided.'});
 
-    jwt.verify(token, TOKEN, function(err, decoded) {
-        if(err) return res.status(500).send({auth: false, message: 'Failed to authenticate token.'});
+    if(!token) {
+        res.status(401);
+        alert('Você precisa estar logado para acessar este conteúdo');
+    }
 
-        req.userId = decoded.id;
-        next();
-    })
+    else {
+
+        jwt.verify(token, TOKEN, function(err, decoded) {
+            // if(err) return res.status(500).send({auth: false, message: 'Token inválido'});
+            if(err) {
+                res.status(500);
+                alert('Token inválido');
+            }
+
+            else {
+                res.status(200);
+                req.userId = decoded.id;
+                next();
+            }
+        });
+    }
+
+    res.end();
 }
