@@ -18,22 +18,22 @@
             <form action="/filme/cadastro" method="POST">
                 <div class="content-form">
                     <label for="nome">Nome: </label>
-                    <input type="text" name="nome" value="{{nome}}" required/>
+                    <input type="text" name="nome" value="" required/>
                 </div>
 
                 <div class="content-form">
                     <label for="ano">Ano: </label>
-                    <input type="number" name="ano" value="{{ano}}" required/>
+                    <input type="number" name="ano" value="" required/>
                 </div>
 
                 <div class="content-form">
-                    <label for="img">Imagem URL: </label>
-                    <input type="text" name="img" value="{{img}}" oninput="viewPhoto()" required/>
-                    
+                    <label for="img-nome">Imagem URL: </label>
+                    <input type="file" name="img-nome" oninput="readImage(event)" required/>
+                    <input type="hidden" name="img" value=""/>                    
                 </div>
 
                 <div class="content-form">
-                    <img id="poster" src="{{img}}">
+                    <img id="poster" src="">
                 </div>
 
                 <div class="content-form">
@@ -49,12 +49,18 @@
     </div>
 
     <script>
-        function viewPhoto() {
-            var img = document.getElementById("poster");
-            var url = document.querySelector("input[name=img]").value;
-
-            img.src = url;
+        
+        function readImage(event) {
+            if (event.target.files && event.target.files[0]) {
+                var FR = new FileReader();
+                FR.onload = function(e) {
+                    document.getElementById("poster").src = e.target.result;
+                    document.querySelector("input[name=img]").value = e.target.result;
+                };
+                FR.readAsDataURL(event.target.files[0]);
+            }
         }
+
     </script>
 </body>
 </html>

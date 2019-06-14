@@ -23,6 +23,10 @@
     background-color: #f40612;
 }
 
+.novo {
+    margin-left: 0;
+}
+
 .concord {
     background: #1a1a1a;
     overflow: hidden;

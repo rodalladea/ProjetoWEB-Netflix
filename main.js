@@ -12,9 +12,10 @@ var http = require('http'),
 const TOKEN = '1358@asdfg';
 
 // require("dotenv-safe").load();
-app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.json({limit: '50mb'}));       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-    extended: true
+    extended: true,
+    limit: '50mb'
 }));
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded());
@@ -48,6 +49,45 @@ app.get('/profile', verifyJWT, (req, res) => {
     res.status(200);
 });
 
+app.get('/filme', verifyJWT, (req, res) => {
+
+    res.render('filme');
+    
+});
+
+app.post('/filme/cadastro', verifyJWT, (req, res) => {
+    var filme = new Filmes(req.body);
+    filme.save();
+
+
+    res.redirect('/configuracao');
+    res.end();
+});
+
+app.post('/filme/delete', verifyJWT, (req, res) => {
+    var filme = new Filmes(req.body);
+    filme.delete();
+
+    res.redirect('/configuracao');
+    res.end();
+});
+
+app.post('/filme/update', verifyJWT, (req, res) => {
+    var filme = new Filmes(req.body);
+    filme.save();
+
+    res.redirect('/configuracao');
+    res.end();
+    
+});
+
+app.get('/configuracao', verifyJWT, (req, res) => {
+    Filmes.find({}, 0).then(result => {
+
+        res.render('configuracao', { filmes: result });
+    });
+});
+
 app.post('/login', (req, res) => {
     let login = req.body.login;
     let senha = req.body.senha;
@@ -71,7 +111,7 @@ app.post('/login', (req, res) => {
                 console.log(token);
 
                 res.cookie('token',token);
-                res.redirect('/profile');
+                res.redirect('/configuracao');
 
             }
             else {
@@ -124,46 +164,6 @@ app.post('/', (req, res) => {
     res.redirect('cadastro');
     res.end();
 });
-
-
-app.get('/filme', (req, res) => {
-
-    res.render('filme');
-    
-});
-
-app.post('/filme/cadastro', (req, res) => {
-    var filme = new Filmes(req.body);
-    filme.save();
-
-    res.redirect('/filme');
-    res.end();
-});
-
-app.post('/filme/delete', (req, res) => {
-    var filme = new Filmes(req.body);
-    filme.delete();
-
-    res.redirect('/configuracao');
-    res.end();
-});
-
-app.post('/filme/update', (req, res) => {
-    var filme = new Filmes(req.body);
-    filme.save();
-
-    res.redirect('/configuracao');
-    res.end();
-    
-});
-
-app.get('/configuracao', (req, res) => {
-    Filmes.find({}, 0).then(result => {
-
-        res.render('configuracao', { filmes: result });
-    });
-});
-
 
 http.createServer(app).listen(3000);
 
