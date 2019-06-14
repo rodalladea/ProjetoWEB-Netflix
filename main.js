@@ -204,7 +204,9 @@ app.post('/', (req, res) => {
     res.end();
 });
 
-http.createServer(app).listen(3000);
+var porta = process.env.PORT || 8080;
+
+http.createServer(app).listen(porta);
 
 function verifyJWT(req, res, next) {
     console.log(req.cookies.token);
