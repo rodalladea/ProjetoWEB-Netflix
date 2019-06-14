@@ -36,8 +36,7 @@ module.exports = class Mongo {
     }
 
     static find(query = {}, sort = {}, limit = 5, collection) {
-        return conn.then((err,conn) => {
-            if (err) throw err;
+        return conn.then(conn => {
             return conn.db.collection(collection).find(query).sort(sort).limit(limit)
                           .toArray();
         });
