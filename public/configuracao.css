@@ -1,0 +1,94 @@
+.header {
+    height: 90px;
+    width: 100%;
+    background: 0 0;
+    border: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.perfil {
+    color: #fff;
+    font-weight: 400;
+    border-radius: 3px;
+    background-color: #e50914;
+    float: right;
+    text-decoration: none;
+    margin: 18px 3% 0;
+    padding: 7px 17px;
+    font-size: 16px;
+}
+
+.perfil:hover {
+    background-color: #f40612;
+}
+
+.concord {
+    background: #1a1a1a;
+    overflow: hidden;
+    color: #fff;
+    transition: height .2s linear;
+    min-height: 100vh;
+}
+
+.all-card {
+    display: inline-block;
+}
+
+.card {
+    text-align: center;
+    width: 250px;
+    margin: 25px 0 0 25px;
+    box-shadow: 0 0px 50px 0 rgba(255, 255, 255, 0.2), 0 0px 8px 0 rgba(255, 255, 255, 0.19);
+}
+
+.img-card {
+    width: 100%;
+}
+
+.conteudo-card {
+    margin-top: 10px;
+}
+
+.campo-card {
+    font-weight: bold;
+}
+
+body,
+html {
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    direction: ltr;
+}
+
+a {
+    background-color: transparent;
+}
+
+label {
+    display: block;
+    margin: 2px 0 2px 0;
+}
+
+h1 {
+    margin: 50px 0 0 25px;
+}
+
+input[type="submit"] {
+    background-color: #e50914;
+    min-height: 35px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    margin: 10px 0 10px 0;
+}
+
+input[type="submit"]:hover {
+    background-color: #F40612;
+}
+
+form {
+    display: inline-block;
+}

@@ -35,7 +35,10 @@ app.get('/cadastro', (req, res) => {
 
 
 app.get('/', (req, res) => {
-    res.render('index');
+    Filmes.find({}, 0).then(result => {
+
+        res.render('index', { filmes: result });
+    });
 });
 
 app.get('/users', verifyJWT, (req, res) => {
@@ -119,22 +122,43 @@ app.post('/', (req, res) => {
 
 
 app.get('/filme', (req, res) => {
-    Filmes.find({}, 0).then(result => {
-        console.log("aqui");
-        console.log(result);
 
-        res.render('filme', { filmes: result });
-    });
+    res.render('filme');
+    
 });
 
-app.post('/cadastro/filme', (req, res) => {
+app.post('/filme/cadastro', (req, res) => {
     var filme = new Filmes(req.body);
     filme.save();
-    filme.close();
 
     res.redirect('/filme');
     res.end();
 });
+
+app.post('/filme/delete', (req, res) => {
+    var filme = new Filmes(req.body);
+    filme.delete();
+
+    res.redirect('/configuracao');
+    res.end();
+});
+
+app.post('/filme/update', (req, res) => {
+    var filme = new Filmes(req.body);
+    filme.save();
+
+    res.redirect('/configuracao');
+    res.end();
+    
+});
+
+app.get('/configuracao', (req, res) => {
+    Filmes.find({}, 0).then(result => {
+
+        res.render('configuracao', { filmes: result });
+    });
+});
+
 
 http.createServer(app).listen(3000);
 

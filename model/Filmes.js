@@ -4,7 +4,7 @@ module.exports = class Filme extends Mongo {
 
     constructor(data) {
         super(data);
-        this.id = data.id;
+        this._id = data._id;
         this.nome = data.nome;
         this.ano = data.ano;
         this.img = data.img;

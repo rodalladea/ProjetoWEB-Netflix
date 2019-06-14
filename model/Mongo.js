@@ -1,4 +1,5 @@
-let client = require('mongodb').MongoClient;
+let client = require('mongodb').MongoClient,
+    ObjectId = require('mongodb').ObjectId;
 let conn = client.connect('mongodb://localhost:27017/netflix', {useNewUrlParser: true})
             .then(conn => {
                 return {
@@ -12,23 +13,22 @@ let conn = client.connect('mongodb://localhost:27017/netflix', {useNewUrlParser:
 
 module.exports = class Mongo {
     save() {
-        if (this.id) {
+        if (this._id) {
+            this._id = ObjectId(this._id);
             return conn.then(conn => {
-                console.log("Salvo");
-                return conn.db.collection(this.collection).updateOne({id: this.id}, {$set: this});
+                return conn.db.collection(this.collection).updateOne({_id: this._id}, {$set: this});
             });
         }
 
         return conn.then(conn => {
-            console.log("Criado");
             return conn.db.collection(this.collection).insertOne(this);
         });
     }
 
     delete() {
-        if (this.id) {
+        if (this._id) {
             return conn.then(conn => {
-                return conn.db.collection(this.collection).deleteOne({id: this.id});
+                return conn.db.collection(this.collection).deleteOne({_id: ObjectId(this._id)});
             });
         }
 
@@ -43,6 +43,8 @@ module.exports = class Mongo {
     }
 
     static close() {
-        conn.then(conn => conn.close());
+        conn.then(conn => {
+            conn.close();
+        });
     }
 }

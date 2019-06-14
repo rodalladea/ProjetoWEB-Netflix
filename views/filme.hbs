@@ -7,30 +7,46 @@
     <title>Novo Filme</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="addFilme.css">
 </head>
 <body>
-    <h1>Novo Filme</h1>
-    <form action="/cadastro/filme" method="POST">
-        <label for="nome">Nome: </label>
-        <input type="text" name="nome" value="" required/>
+    
+    <div class="concord">
+        <div class="card-form">    
+            <h1>Novo Filme</h1>
+    
+            <form action="/filme/cadastro" method="POST">
+                <div class="content-form">
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="nome" value="{{nome}}" required/>
+                </div>
 
-        <label for="ano">Ano: </label>
-        <input type="number" name="ano" value="" required/>
+                <div class="content-form">
+                    <label for="ano">Ano: </label>
+                    <input type="number" name="ano" value="{{ano}}" required/>
+                </div>
 
-        <label for="img">Imagem: </label>
-        <input type="text" name="img" value="" onchange="viewPhoto()" required/>
-        <img id="poster" src="">
+                <div class="content-form">
+                    <label for="img">Imagem URL: </label>
+                    <input type="text" name="img" value="{{img}}" oninput="viewPhoto()" required/>
+                    
+                </div>
 
-        <label for="sinopse">Sinopse: </label>
-        <input type="text" name="sinopse" value="" required/>
+                <div class="content-form">
+                    <img id="poster" src="{{img}}">
+                </div>
 
-        <input type="submit" name="enviar" value="CadastraFilme">
-    </form>
+                <div class="content-form">
+                    <label for="sinopse">Sinopse: </label>
+                    <input type="text" name="sinopse" value="{{sinopse}}" required/>
+                </div>
 
-    {{#each filmes}}
-        <p>{{this}}</p>
-    {{/each}}
+                <div class="content-form">
+                    <input type="submit" name="enviar" value="Cadastrar">
+                </div>
+            </form>
+        </div>    
+    </div>
 
     <script>
         function viewPhoto() {

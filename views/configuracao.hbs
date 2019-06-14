@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Configuração</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="configuracao.css">
+</head>
+<body>
+        <div class="header">
+            <a href="./profile" class="perfil">Perfil</a>
+        </div>
+        
+        <div class="concord">
+            <h1>Filmes</h1>
+
+            {{#each filmes}}
+                <div class="all-card">
+                    <div class="card">
+                        <form action="/filme/update" method="POST">
+                            <input type="hidden" name="_id" value="{{_id}}">
+                            <input type="hidden" name="img" value="{{img}}">
+                            <img src={{img}} class="img-card">
+                            <div class="conteudo-card">
+                                <label class="campo-card" for="nome">Nome</label>
+                                <input type="text" name="nome" value="{{nome}}">
+                            </div>
+                            <div class="conteudo-card">
+                                <label class="campo-card" for="ano">Ano</label>
+                                <input type="number" name="ano" value="{{ano}}">
+                            </div>
+                            <div class="conteudo-card">
+                                <label class="campo-card" for="sinopse">Sinopse</label>
+                                <input type="text" name="sinopse" value="{{sinopse}}">
+                            </div>
+                            <input type="submit" value="Atualizar">
+                        </form>
+
+                        <form action="/filme/delete" method="POST">
+                            <input type="hidden" name="_id" value="{{_id}}">
+                            <input type="hidden" name="nome" value="{{nome}}">
+                            <input type="hidden" name="ano" value="{{ano}}">
+                            <input type="hidden" name="sinopse" value="{{sinopse}}">
+                            <input type="hidden" name="img" value="{{img}}">
+                            <input type="submit" value="Excluir">
+                        </form>
+                    </div>
+                </div>
+            {{/each}}
+
+        </div>
+</body>
+</html>

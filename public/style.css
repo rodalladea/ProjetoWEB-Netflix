@@ -660,3 +660,38 @@ button:hover {
 .home-wrapper {
     border-bottom: 2px solid rgb(61, 61, 61);
 }
+
+.all-card {
+    margin: 30px 10px 10px 10px;
+}
+
+.card {
+    display: inline-block;
+    text-align: center;
+    width: 250px;
+    margin: 25px 0 10px 25px;
+    padding-bottom: 20px;
+    color: #fff;
+    box-shadow: 0 0px 50px 0 rgba(255, 255, 255, 0.2), 0 0px 8px 0 rgba(255, 255, 255, 0.19);
+}
+
+.img-card {
+    width: 100%;
+}
+
+.conteudo-card {
+    margin-top: 10px;
+}
+
+.campo-card {
+    font-weight: bold;
+}
+
+.fundo {
+    background-color: #1a1a1a;
+    height: 100%;
+}
+
+.p-card {
+    margin: 2px 0 2px 0;
+}

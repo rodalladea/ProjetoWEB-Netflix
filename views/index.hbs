@@ -52,6 +52,29 @@
             </div>
         </div>
 
+        <div class="fundo">
+            <div class="all-card">
+                {{#each filmes}}
+                <div class="card">
+                    <img src={{img}} class="img-card">
+                    <div class="conteudo-card">
+                        <label class="campo-card" for="nome">Nome</label>
+                        <p class="p-card">{{nome}}</p>
+                    </div>
+                    <div class="conteudo-card">
+                        <label class="campo-card" for="ano">Ano</label>
+                        <p class="p-card">{{ano}}</p>
+                    </div>
+                    <div class="conteudo-card">
+                        <label class="campo-card" for="sinopse">Sinopse</label>
+                        <p class="p-card">{{sinopse}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        
+
         <div class="navegacao">
             <div class="container">
                 <div class="nav-item">
