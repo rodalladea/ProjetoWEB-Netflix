@@ -9,6 +9,7 @@ var http = require('http'),
     Users = require('./model/Users');
 
 const TOKEN = '1358@asdfg';
+
 // require("dotenv-safe").load();
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -17,9 +18,10 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded());
 
+app.use(cookieParser())
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'img')));
-app.use(cookieParser());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -37,8 +39,9 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/users', verifyJWT, (req, res) => {
-
+app.get('/profile', verifyJWT, (req, res) => {
+    res.render('profile');
+    res.status(200);
 });
 
 app.post('/login', (req, res) => {
@@ -59,10 +62,12 @@ app.post('/login', (req, res) => {
                 console.log(id);
 
                 var token = jwt.sign({ id }, TOKEN, {
-                    expiresIn: 5
+                    expiresIn: 60*60
                 });
+                console.log(token);
 
-                res.status(200).send({auth:true, token: token});
+                res.cookie('token',token);
+                res.redirect('/profile');
 
             }
             else {
@@ -119,7 +124,8 @@ app.post('/', (req, res) => {
 http.createServer(app).listen(3000);
 
 function verifyJWT(req, res, next) {
-    var token = req.headers['x-acess-token'];
+    console.log(req.cookies);
+    var token = req.cookies.token;
     if(!token) return res.status(401).send({auth: false, message: 'No token provided.'});
 
     jwt.verify(token, TOKEN, function(err, decoded) {
