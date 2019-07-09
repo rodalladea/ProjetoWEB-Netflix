@@ -17,5 +17,6 @@ module.exports = class Filme extends Mongo {
             return result.map(filme => new Filme(filme));
         });
     }
+
     
 }
