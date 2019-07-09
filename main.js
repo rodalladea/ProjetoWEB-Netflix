@@ -166,20 +166,24 @@ app.post('/', (req, res) => {
 
                 console.log(userFound[0]);
         
-                if (userFound.length) 
-                     alert('Já existe um usuário cadastrado com este nome');            
+                if (userFound.length) {
+                    alert('Já existe um usuário cadastrado com este nome');
+                    res.redirect('cadastro');
+                    res.end();
+                }          
         
                 else {
                     Users.insert(username, email, senha).then(() => {
                         alert('Cadastro realizado com sucesso');
+                        res.redirect('login');
+                        res.end();
                     });
                 }
             });
         }
     });
 
-    res.redirect('cadastro');
-    res.end();
+    
 });
 
 var porta = process.env.PORT || 8080;
@@ -191,9 +195,9 @@ function verifyJWT(req, res, next) {
     // if(!token) return res.status(401).send({auth: false, message: 'No token provided.'});
 
     if(!token) {
-        res.status(401);
         alert('Você precisa estar logado para acessar este conteúdo');
         res.redirect('/');
+        res.status(401);
         res.end();
     }
 
@@ -202,8 +206,10 @@ function verifyJWT(req, res, next) {
         jwt.verify(token, TOKEN, function(err, decoded) {
             // if(err) return res.status(500).send({auth: false, message: 'Token inválido'});
             if(err) {
-                res.status(500);
+                
                 alert('Token inválido');
+                res.redirect('/');
+                res.status(500);
                 res.end();
             }
 
