@@ -1,15 +1,16 @@
-let client = require('mongodb').MongoClient,
-    ObjectId = require('mongodb').ObjectId;
-let conn = client.connect('mongodb://localhost:27017/netflix', {useNewUrlParser: true})
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://teste1:NsmeWnkhuRRKxoYv@cluster0-amaro.gcp.mongodb.net/test?retryWrites=true&w=majority";
+const conn = MongoClient.connect(uri, { useNewUrlParser: true })
             .then(conn => {
                 return {
                     db: conn.db('netflix'),
                     close: function() {
                         conn.close();
                     }
-                };
+                }
             });
 
+let ObjectId = require('mongodb').ObjectId;
 
 module.exports = class Mongo {
     save() {

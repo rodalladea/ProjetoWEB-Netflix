@@ -120,7 +120,7 @@
             let cards = document.getElementById('cards');
             var xmlhttp = new XMLHttpRequest();
             cards.innerHTML = '';
-            xmlhttp.open('GET', 'http://localhost:8080/busca?nome=', true);
+            xmlhttp.open('GET', 'https://projetoweb-netflix.herokuapp.com/busca?nome=', true);
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                     const data = JSON.parse(xmlhttp.responseText);
@@ -169,7 +169,7 @@
             let select = document.getElementById('selector');
             let filtro = select.options[select.selectedIndex].value;
             
-            xmlhttp.open('GET', 'http://localhost:8080/busca?'+filtro+'=' + busca.value, true);
+            xmlhttp.open('GET', 'https://projetoweb-netflix.herokuapp.com/busca?'+filtro+'=' + busca.value, true);
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                     const data = JSON.parse(xmlhttp.responseText);
@@ -203,7 +203,7 @@
             const filme = busca.value;
             cards.innerHTML = "";
 
-            xmlhttp.open('GET', 'http://localhost:8080/busca?'+filtro+'=' + filme, true);
+            xmlhttp.open('GET', 'https://projetoweb-netflix.herokuapp.com/busca?'+filtro+'=' + filme, true);
 
             xmlhttp.onreadystatechange = function () {
 
