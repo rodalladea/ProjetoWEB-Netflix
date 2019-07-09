@@ -88,24 +88,25 @@ app.get('/configuracao', verifyJWT, (req, res) => {
     });
 });
 
+
 app.get('/busca', (req, res) => {
-    if ("nome" === req.query.filtro) {
-        Filmes.find({nome: req.query.busca}, 0).then(result => {
+    console.log(req.query);
 
-            res.render('index', { filmes: result });
+    if (req.query.nome !== undefined) {
+        Filmes.find({nome: new RegExp(req.query.nome, 'i') }, 0).then(result => {
+            console.log(result)
+            res.send(result);
         });
-    } else if ("ano" === req.query.filtro) {
-        Filmes.find({ano: req.query.busca}, 0).then(result => {
-
-            res.render('index', { filmes: result });
+    } else if (req.query.ano !== undefined) {
+        console.log('passou ano')
+        Filmes.find({ano: new RegExp(req.query.ano, 'i')}, 0).then(result => {
+            res.send(result);
         });
-    } else if ("sinopse" === req.query.filtro) {
-        Filmes.find({sinopse: req.query.busca}, 0).then(result => {
-
-            res.render('index', { filmes: result });
+    } else if (req.query.sinopse !== undefined) {
+        Filmes.find({sinopse: new RegExp(req.query.sinopse, 'i')}, 0).then(result => {
+            res.send(result);
         });
     }
-    
 });
 
 app.get('/configuracao/busca', (req, res) => {
