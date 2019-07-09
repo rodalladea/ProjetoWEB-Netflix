@@ -35,11 +35,12 @@
     min-height: 100vh;
 }
 
-.all-card {
+/* .all-card {
     display: inline-block;
-}
+} */
 
 .card {
+    display: inline-block;
     text-align: center;
     width: 250px;
     margin: 25px 0 0 25px;
@@ -106,4 +107,8 @@ form[method="POST"] {
 .pesquisa {
     margin: 10px 0 0 25px;
     font-size: 25px;
+}
+
+#progressBar {
+    margin: 25px 0 0 25px;
 }

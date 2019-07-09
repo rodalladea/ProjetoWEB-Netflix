@@ -713,6 +713,7 @@ a:visited{
 
 .all-card {
     margin: 30px 10px 10px 10px;
+    text-align: center;
 }
 
 .card {
@@ -773,4 +774,8 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #F40612;
+}
+
+#progressBar {
+    color: #fff;
 }

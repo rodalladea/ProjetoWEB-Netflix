@@ -68,16 +68,14 @@ app.post('/filme/delete', verifyJWT, (req, res) => {
     var filme = new Filmes(req.body);
     filme.delete();
 
-    res.redirect('/configuracao');
-    res.end();
+    res.send(filme);
 });
 
 app.post('/filme/update', verifyJWT, (req, res) => {
     var filme = new Filmes(req.body);
     filme.save();
 
-    res.redirect('/configuracao');
-    res.end();
+    res.send(filme);
     
 });
 
@@ -107,27 +105,6 @@ app.get('/busca', (req, res) => {
             res.send(result);
         });
     }
-});
-
-app.get('/configuracao/busca', (req, res) => {
-    
-    if ("nome" === req.query.filtro) {
-        Filmes.find({nome: req.query.busca}, 0).then(result => {
-
-            res.render('configuracao', { filmes: result });
-        });
-    } else if ("ano" === req.query.filtro) {
-        Filmes.find({ano: req.query.busca}, 0).then(result => {
-
-            res.render('configuracao', { filmes: result });
-        });
-    } else if ("sinopse" === req.query.filtro) {
-        Filmes.find({sinopse: req.query.busca}, 0).then(result => {
-
-            res.render('configuracao', { filmes: result });
-        });
-    }
-    
 });
 
 app.post('/login', (req, res) => {
@@ -216,6 +193,8 @@ function verifyJWT(req, res, next) {
     if(!token) {
         res.status(401);
         alert('Você precisa estar logado para acessar este conteúdo');
+        res.redirect('/');
+        res.end();
     }
 
     else {

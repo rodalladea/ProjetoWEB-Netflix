@@ -119,6 +119,7 @@
         setInterval(function () {
             let cards = document.getElementById('cards');
             var xmlhttp = new XMLHttpRequest();
+            cards.innerHTML = '';
             xmlhttp.open('GET', 'http://localhost:8080/busca?nome=', true);
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -129,9 +130,38 @@
                         createElementCard(i.nome, i.ano, i.sinopse, i.img)
                     });
                 }
-                xmlhttp.send();
+                
             };
-        }, 5000);
+
+            xmlhttp.onprogress = function(e) {
+                if (e.lengthComputable) {
+                    document.getElementById('progress').max = e.total;
+                    document.getElementById('progress').value = e.loaded;
+                    document.getElementById('display').innerText = Math.floor((e.loaded / e.total) * 100) + '%';
+                }
+            };
+
+            xmlhttp.onloadstart = function(e) {
+                const markup = `
+                    <div id="progressBar">
+                        <progress id="progress" value="0"></progress>
+                        <span id="display"></span>
+                    </div>
+                `;
+
+                cards.insertAdjacentHTML('beforeend', markup);
+
+                document.getElementById('progress').value = 0;
+                document.getElementById('display').innerText = '0%';
+            };
+
+            xmlhttp.onloadend = function(e) {
+                document.getElementById('progress').value = e.loaded;
+                cards.removeChild(document.getElementById('progressBar'));
+            };
+
+            xmlhttp.send();
+        }, 120000);
 
         document.querySelector('#busca').addEventListener("keyup", function () {
             var xmlhttp = new XMLHttpRequest();
@@ -160,16 +190,20 @@
             xmlhttp.send();
         });
 
+
+
         document.getElementById('form-pesquisa').onsubmit = function (e) {
             e.preventDefault();
             //console.log('clicou no botão');
             let busca = document.getElementById('busca');
             let cards = document.getElementById('cards');
+            let select = document.getElementById('selector');
+            let filtro = select.options[select.selectedIndex].value;
             let xmlhttp = new XMLHttpRequest();
             const filme = busca.value;
             cards.innerHTML = "";
 
-            xmlhttp.open('GET', 'http://localhost:8080/busca?nome=' + filme, true);
+            xmlhttp.open('GET', 'http://localhost:8080/busca?'+filtro+'=' + filme, true);
 
             xmlhttp.onreadystatechange = function () {
 
@@ -181,6 +215,33 @@
                         createElementCard(i.nome, i.ano, i.sinopse, i.img)
                     });
                 }
+            };
+
+            xmlhttp.onprogress = function(e) {
+                if (e.lengthComputable) {
+                    document.getElementById('progress').max = e.total;
+                    document.getElementById('progress').value = e.loaded;
+                    document.getElementById('display').innerText = Math.floor((e.loaded / e.total) * 100) + '%';
+                }
+            };
+
+            xmlhttp.onloadstart = function(e) {
+                const markup = `
+                    <div id="progressBar">
+                        <progress id="progress" value="0"></progress>
+                        <span id="display"></span>
+                    </div>
+                `;
+
+                cards.insertAdjacentHTML('beforeend', markup);
+
+                document.getElementById('progress').value = 0;
+                document.getElementById('display').innerText = '0%';
+            };
+
+            xmlhttp.onloadend = function(e) {
+                document.getElementById('progress').value = e.loaded;
+                cards.removeChild(document.getElementById('progressBar'));
             };
 
             xmlhttp.send();
